@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block body %}
+<div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide py-3" data-bs-ride="carousel" style="width: 50%; height:50%;display: block;margin-left: auto;margin-right: auto">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.hdwallpapers.in/download/cute_pomeranian_dog-1280x720.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="container">
+  <h3 style="text-align: center;">Featured Posts</h3>
+</div>
+{% for post in posts %}
+<div class="container">
+    <div class="card my-3 py-2">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content|truncatechars:150|safe}}</p>
+          <a href="/blog/{{post.addressdlug}}" class="btn btn-primary" style="display: block;margin-left: auto;margin-right: auto">Read More</a>
+        </div>
+      </div>
+</div>
+{% endfor %}
+
+{% endblock body %}

@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+BlogPost
+{% endblock title %}
+{% block body %}
+<div class="container">
+    <h1 style="text-align: center;">{{thepost.title}}</h1>
+    <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;">Written by {{thepost.author}} on {{thepost.timeStamp}}</h6>
+    <div class="card m-5 " style="display: block; margin-right:auto; margin-left:auto">
+        <div class="card-body">
+          <p class="card-text">{{thepost.content|safe}}</p>
+        </div>
+      </div>
+</div>
+
+{% endblock body %}

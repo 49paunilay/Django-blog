@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+BlogHome
+{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}
+<div class="container">
+    {% for post in allpost %}
+      <div class="card py-3 my-3" style="background-color: rgb(162, 168, 168);">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <h5 class="card-title">{{post.author}}</h5>
+            <p class="card-text">{{post.content|safe | truncatechars:150}}</p>
+            <a href="/blog/{{post.addressdlug}}" class="btn btn-primary" style="display: block;margin-left: auto;margin-right: auto">Read More</a>
+          </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock body %}
+

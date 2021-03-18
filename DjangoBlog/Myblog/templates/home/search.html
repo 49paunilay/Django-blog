@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+search result
+{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}
+<div class="container">
+    <h1 style="text-align: center;">Search Result : </h1>
+    {% if allpost|length > 0 %}
+    {% for post in allpost %}
+      <div class="card py-3 my-3">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <h5 class="card-title">{{post.author}}</h5>
+            <p class="card-text">{{post.content | truncatechars:150}}</p>
+            <a href="/blog/{{post.addressdlug}}" class="btn btn-primary" style="display: block;margin-left: auto;margin-right: auto">Read More</a>
+          </div>
+      </div>
+    {% endfor %}
+    {% else %}
+    <div class="card py-3 my-2">
+        <p style="text-align: center; color:blue;">
+            <strong> Your search for {{query}} didn't match.</strong> 
+        </p>
+    </div>
+    {% endif %}
+</div>
+{% endblock body %}
+
